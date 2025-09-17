@@ -9,11 +9,17 @@ import cors from "cors";
 const app=express();
 
 app.use(express.json())
+app.use(cookieParser());
 
-import authRouter from "./routes/auth.js";
+import authRouter from "./routes/userAuth.js";
+import adminRouter from "./routes/adminAuth.js";
+import powerRouter from "./routes/adminPowers.js";
+import userSideRouter from "./routes/userSide.js";
 
 app.use("/",authRouter);
-
+app.use("/",adminRouter);
+app.use("/",powerRouter);
+app.use("/",userSideRouter);
 
 
 
